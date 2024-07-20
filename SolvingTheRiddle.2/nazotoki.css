@@ -1,0 +1,371 @@
+@media(max-width:840px)
+
+/*タブレット*/
+    {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: red;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+    }
+
+    header {
+        background-color: #DA4245;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1,
+    h2 {
+        margin: 0;
+        color: #153149;
+    }
+
+    ol {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .answer,
+    .hint {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .answer {
+        background-color: #D9CEB9;
+    }
+
+    .answer h1 {
+        color: #153149;
+        font-size: 64px;
+    }
+
+    .answer .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .answer input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .answer button {
+        width: 50%;
+        color: #D9CEB9;
+        background-color: #1c3f60;
+        border-radius: 30px;
+    }
+
+    .hint {
+        background-color: #1c3f60;
+        color: white;
+    }
+
+    .hint h1 {
+        color: #D9CEB9;
+        font-size: 64px;
+    }
+
+    .hint .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hint input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .hint button {
+        width: 50%;
+        color: #1c3f60;
+        background-color: #D9CEB9;
+        border-radius: 30px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #1c3f60;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media(min-width:841px)
+
+/*パソコン*/
+    {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0040ff;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+    }
+
+    header {
+        background-color: #DA4245;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1,
+    h2 {
+        margin: 0;
+        color: #153149;
+    }
+
+    ol {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .answer,
+    .hint {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .answer {
+        background-color: #D9CEB9;
+    }
+
+    .answer h1 {
+        color: #153149;
+        font-size: 64px;
+    }
+
+    .answer .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .answer input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .answer button {
+        width: 50%;
+        color: #D9CEB9;
+        background-color: #1c3f60;
+        border-radius: 30px;
+    }
+
+    .hint {
+        background-color: #1c3f60;
+        color: white;
+    }
+
+    .hint h1 {
+        color: #D9CEB9;
+        font-size: 64px;
+    }
+
+    .hint .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hint input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .hint button {
+        width: 50%;
+        color: #1c3f60;
+        background-color: #D9CEB9;
+        border-radius: 30px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #1c3f60;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:374px)
+
+/*スマホ*/
+    {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5e100;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+    }
+
+    header {
+        background-color: #DA4245;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1,
+    h2 {
+        margin: 0;
+        color: #153149;
+    }
+
+    ol {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .answer,
+    .hint {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .answer {
+        background-color: #D9CEB9;
+    }
+
+    .answer h1 {
+        color: #153149;
+        font-size: 64px;
+    }
+
+    .answer .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .answer input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .answer button {
+        width: 50%;
+        color: #D9CEB9;
+        background-color: #1c3f60;
+        border-radius: 30px;
+    }
+
+    .hint {
+        background-color: #1c3f60;
+        color: white;
+    }
+
+    .hint h1 {
+        color: #D9CEB9;
+        font-size: 64px;
+    }
+
+    .hint .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hint input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .hint button {
+        width: 50%;
+        color: #1c3f60;
+        background-color: #D9CEB9;
+        border-radius: 30px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #1c3f60;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
