@@ -30,7 +30,7 @@
             <h1>ANSWER</h1>
             <p>答えを入力しよう</p>
             <div class="input-container">
-                <input type="text" placeholder="ここに入力">
+                <input type="text" id="keywordInput" placeholder="ここに入力">
                 <button onclick="checkKeyword()">送信</button>
                 <div id="result"></div>
             </div>
@@ -40,8 +40,9 @@
             <h1>HINT</h1>
             <p>問題番号を入力してヒントをもらおう</p>
             <div class="input-container">
-                <input type="text" placeholder="ここに入力">
-                <button>送信</button>
+                <input type="text" id="Keywordinput" placeholder="ここに入力">
+                <button onclick="checkKeyword()">送信</button>
+                <div id="result"></div>
             </div>
         </section>
 
@@ -53,7 +54,8 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="nazotoki.js"></script>
+    <script src="answer.js"></script>
+    <script src="hint.js"></script>
 </body>
 
 </html>
