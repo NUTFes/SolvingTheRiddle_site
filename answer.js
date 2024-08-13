@@ -3,7 +3,7 @@ function checkAnswerKeyword() {
     switch (keyword) {
         case "ラストスパート":
             $("#answerResult").html(
-                '<img src="congrats.jpg" alt="Congratulations!"/>'
+                '<img src="images/Clear-3.png" alt="Congratulations!"/>'
             );
             break;
         default:
