@@ -3,7 +3,7 @@ function checkAnswerKeyword() {
     switch (keyword) {
         case "ラストスパート":
             $("#answerResult").html(
-                '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!"/>');
+                '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 600px; height: auto;"/>');
             break;
         default:
             $("#answerResult").text("無効なキーワードです。再試行してください。");
