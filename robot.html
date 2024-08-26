@@ -1,0 +1,29 @@
+<!-- 謎解き用アプリ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+					"three/examples/jsm/loaders/DDSLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/DDSLoader.js",
+					"three/examples/jsm/loaders/MTLLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/MTLLoader.js",
+					"three/addons/loaders/OBJLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/OBJLoader.js"
+            	}
+			}
+		</script>
+		<script type="module" src="robot.js"></script>
+		<title>Solving The Riddle</title>
+	</head>
+	<body>
+		<canvas id="myCanvas"></canvas>
+	</body>
+</html>
