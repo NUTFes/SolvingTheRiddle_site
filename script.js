@@ -1,3 +1,16 @@
+function checkAnswerKeyword() {
+    var keyword = $("#keywordInput").val().toUpperCase(); // 入力を大文字に統一
+    switch (keyword) {
+        case "ラストスパート":
+            $("#answerResult").html(
+                '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 100%; height: auto;"/>');
+            break;
+        default:
+            $("#answerResult").text("無効なキーワードです。再試行してください。");
+            break;
+    }
+}
+
 function checkHintKeyword() {
     var keyword = $("#hintInput").val().toUpperCase(); // 入力を大文字に統一
     switch (keyword) {
@@ -39,4 +52,8 @@ function checkHintKeyword() {
             $("#hintResult").text("無効なキーワードです。再試行してください。");
             break;
     }
+}
+
+function transitionArPage() {
+    window.location.href="https://threejs-train.pages.dev";
 }
