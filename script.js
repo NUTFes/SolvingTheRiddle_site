@@ -55,5 +55,5 @@ function checkHintKeyword() {
 }
 
 function transitionArPage() {
-    window.location.href="https://threejs-train.pages.dev";
+    window.location.href = "./false_advertisement.html";
 }
