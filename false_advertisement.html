@@ -1,0 +1,82 @@
+<!-- 偽広告スキャン用のアプリ -->
+<!-- aframeとar.jsを画像トラッキング/位置ベースの機能とともにインポートする -->
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+<!-- ローダーのスタイル -->
+<style>
+	.arjs-loader {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 9999;
+		display: flex;			/* Flexboxを使用して中央揃え */
+		justify-content: center;	/* 横方向の中央揃え */
+		align-items: center;			/* 縦方向の中央揃え */
+	}
+
+	.arjs-loader div {
+		text-align: center;
+		font-size: 1.25em;
+		color: white;
+	}
+	
+	.clear_image {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 9999;	/* 画像を最前面に表示 */
+		display: flex;			/* Flexboxを使用して中央揃え */
+		justify-content: center;	/* 横方向の中央揃え */
+		align-items: center;			/* 縦方向の中央揃え */
+	}
+	
+	.clear_image img{
+		width: 70%;
+		text-align: center;
+	}
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+	<!-- 画像ディスクリプタが読み込まれるまで表示される最小限のローダー。デバイスの計算能力によっては読み込みに時間がかかる場合があります -->
+	<div class="arjs-loader">
+		<div>読み込み中です。お待ちください...</div>
+	</div>
+	<div class="clear_image">
+		<img src="images/43rd Mystery Solve.png" alt="画像が表示できません">
+	</div>
+
+	<!-- a-frameシーン -->
+	<a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+		arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+		<a-nft type="nft" url="images/43rd_偽広告" smooth="true" smoothCount="5" smoothTolerance=".01" smoothThreshold="2">
+		</a-nft>
+		<!-- デバイスの動きに応じて移動する静止カメラ -->
+		<a-entity camera></a-entity>
+	</a-scene>
+	<script>
+		window.addEventListener('arjs-nft-loaded', function(e){
+			console.log('画像ディスクリプタが読み込まれました')
+		});
+		var clear_image = document.querySelector('.clear_image');
+		clear_image.style.visibility = 'hidden';
+		var scene = document.querySelector('a-scene');
+		scene.addEventListener('markerFound', onTracking);
+		scene.addEventListener('markerLost', onLost);
+		function onTracking() {
+			// クリア画像を表示する
+			clear_image.style.visibility = 'visible';
+			console.log('トラッキング中');
+		}
+		function onLost() {
+			// クリア画像を非表示にする
+			// clear_image.style.visibility = 'hidden';
+			console.log('トラッキングが外れました');
+		}
+	</script>
+</body>

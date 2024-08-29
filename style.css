@@ -6,7 +6,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: red;
+        /* background-color: red; */
     }
 
     .container {
@@ -22,6 +22,12 @@
         text-align: center;
     }
 
+    a {
+        font-size: 16px;
+        color: #da2000;
+        margin: 80px;
+    }
+
     h1,
     h2 {
         margin: 0;
@@ -29,7 +35,7 @@
     }
 
     ol {
-        text-align: left;
+        text-align: center;
         padding-left: 30px;
     }
 
@@ -101,7 +107,6 @@
     }
 
     button {
-        background-color: #4CAF50;
         border: none;
         color: white;
         padding: 10px 20px;
@@ -111,6 +116,22 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+    }
+
+    /* ボタンコンテナのスタイル */
+    .button-container {
+        width: 80%;
+        margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+        text-align: center; /* コンテナ内のボタンを中央に配置 */
+    }
+
+    /* ボタンのスタイル */
+    .button-container button {
+        padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+        font-size: 16px; /* ボタンの文字サイズを調整 */
+        border-radius: 30px; /* ボタンの角を丸くする */
+        background-color: #DA4245;
+        border: none
     }
 
     footer {
@@ -130,7 +151,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #0040ff;
+        /* background-color: #0040ff; */
     }
 
     .container {
@@ -146,6 +167,12 @@
         text-align: center;
     }
 
+    a {
+        font-size: 16px;
+        color: #da2000;
+        margin: 80px;
+    }
+
     h1,
     h2 {
         margin: 0;
@@ -153,7 +180,7 @@
     }
 
     ol {
-        text-align: left;
+        text-align: center;
         padding-left: 30px;
     }
 
@@ -225,7 +252,7 @@
     }
 
     button {
-        background-color: #4CAF50;
+        /* background-color: #4CAF50; */
         border: none;
         color: white;
         padding: 10px 20px;
@@ -235,6 +262,22 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+    }
+
+    /* ボタンコンテナのスタイル */
+    .button-container {
+        width: 80%;
+        margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+        text-align: center; /* コンテナ内のボタンを中央に配置 */
+    }
+
+    /* ボタンのスタイル */
+    .button-container button {
+        padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+        font-size: 16px; /* ボタンの文字サイズを調整 */
+        border-radius: 30px; /* ボタンの角を丸くする */
+        background-color: #DA4245;
+        border: none
     }
 
     footer {
@@ -254,7 +297,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f5e100;
+        /* background-color: #f5e100; */
     }
 
     .container {
@@ -270,6 +313,12 @@
         text-align: center;
     }
 
+    a {
+        font-size: 16px;
+        color: #da2000;
+        margin: 80px;
+    }
+
     h1,
     h2 {
         margin: 0;
@@ -277,8 +326,8 @@
     }
 
     ol {
-        text-align: left;
-        padding-left: 30px;
+        text-align: center;
+        /* padding-left: 30px; */
     }
 
     .answer,
@@ -314,7 +363,6 @@
         border-radius: 30px;
     }
 
-
     .hint {
         background-color: #1c3f60;
         color: white;
@@ -349,20 +397,30 @@
         margin: 10px 0;
     }
 
-
 }
 
 button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    width: 40%;
+    background-color: #D9CEB9;
+    color: #1c3f60;
+    border-radius: 30px;
+    border: 2px solid #153149;
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+    width: 80%;
+    margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+    text-align: center; /* コンテナ内のボタンを中央に配置 */
+}
+
+/* ボタンのスタイル */
+.button-container button {
+    padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+    font-size: 16px; /* ボタンの文字サイズを調整 */
+    border-radius: 30px; /* ボタンの角を丸くする */
+    background-color: #DA4245;
+    border: none
 }
 
 footer {
