@@ -14,6 +14,10 @@ function checkAnswerKeyword() {
 function checkHintKeyword() {
     var keyword = $("#hintInput").val().toUpperCase(); // 入力を大文字に統一
     switch (keyword) {
+        case "1":
+            $("#hintResult").text(
+                "サイトをよーくみると「もんだい1」が,,,");
+            break;
         case "2":
             $("#hintResult").text(
                 "エレベーター、コンタクトレンズ、マカロニ、サックスのようです。");
