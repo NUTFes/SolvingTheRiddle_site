@@ -118,7 +118,21 @@
         cursor: pointer;
     }
 
-    
+    /* ボタンコンテナのスタイル */
+    .button-container {
+        width: 80%;
+        margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+        text-align: center; /* コンテナ内のボタンを中央に配置 */
+    }
+
+    /* ボタンのスタイル */
+    .button-container button {
+        padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+        font-size: 16px; /* ボタンの文字サイズを調整 */
+        border-radius: 30px; /* ボタンの角を丸くする */
+        background-color: #DA4245;
+        border: none
+    }
 
     footer {
         background-color: #1c3f60;
@@ -250,6 +264,22 @@
         cursor: pointer;
     }
 
+    /* ボタンコンテナのスタイル */
+    .button-container {
+        width: 80%;
+        margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+        text-align: center; /* コンテナ内のボタンを中央に配置 */
+    }
+
+    /* ボタンのスタイル */
+    .button-container button {
+        padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+        font-size: 16px; /* ボタンの文字サイズを調整 */
+        border-radius: 30px; /* ボタンの角を丸くする */
+        background-color: #DA4245;
+        border: none
+    }
+
     footer {
         background-color: #1c3f60;
         color: white;
@@ -375,6 +405,22 @@ button {
     color: #1c3f60;
     border-radius: 30px;
     border: 2px solid #153149;
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+    width: 80%;
+    margin: 56px auto 0; /* コンテナを中央に配置し、上にスペースを追加 */
+    text-align: center; /* コンテナ内のボタンを中央に配置 */
+}
+
+/* ボタンのスタイル */
+.button-container button {
+    padding: 15px 20px; /* ボタンの内側のスペースを調整 */
+    font-size: 16px; /* ボタンの文字サイズを調整 */
+    border-radius: 30px; /* ボタンの角を丸くする */
+    background-color: #DA4245;
+    border: none
 }
 
 footer {
