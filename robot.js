@@ -44,7 +44,7 @@ new MTLLoader(manager).load(
 					scene.add(box);
 					//   box.position.y = -95;
 					box.position.set(0, 0, 0);
-					box.rotation.set((Math.PI / 2), 0, 0);
+					box.rotation.set(23, 43, 0);
 					box.scale.set(100, 100, 100);
 				});
 	},
@@ -132,8 +132,8 @@ function handleMouseMove(event) {
 		return;
 	}
 	// メッシュをマウスの方向に回転させる
-	box.rotation.x = mouse.y * (Math.PI) + (Math.PI / 2);
-	box.rotation.y = mouse.x * (Math.PI);
+	box.rotation.x = mouse.y * (Math.PI) * 2;
+	box.rotation.y = mouse.x * (Math.PI) * 2;
 }
 
 // スワイプ開始時のイベントハンドラ
