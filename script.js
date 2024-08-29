@@ -1,15 +1,16 @@
-function checkAnswerKeyword() {
-    var keyword = $("#keywordInput").val().toUpperCase(); // 入力を大文字に統一
-    switch (keyword) {
-        case "ラストスパート":
-            $("#answerResult").html(
-                '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 100%; height: auto;"/>');
-            break;
-        default:
-            $("#answerResult").text("無効なキーワードです。再試行してください。");
-            break;
-    }
-}
+// function checkAnswerKeyword() {
+//     var keyword = $("#keywordInput").val().toUpperCase(); // 入力を大文字に統一
+//     switch (keyword) {
+//         case "ラストスパート":
+//             $("#answerResult").html(
+//                 '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 100%; height: auto;"/>'
+//             );
+//             break;
+//         default:
+//             $("#answerResult").text("無効なキーワードです。再試行してください。");
+//             break;
+//     }
+// }
 
 function checkHintKeyword() {
     var keyword = $("#hintInput").val().toUpperCase(); // 入力を大文字に統一
@@ -61,3 +62,48 @@ function checkHintKeyword() {
 function transitionArPage() {
     window.location.href = "./false_advertisement.html";
 }
+
+// フラグを使って新しいボタンの生成を1回だけに制限
+let buttonCreated = false;
+
+document.getElementById('actionButton').addEventListener('click', function () {
+    // テキストボックスの内容を取得
+    const keyword = document.getElementById('keywordInput').value.trim().toUpperCase();
+    
+    // 結果エリアに表示
+    const answerResult = document.getElementById('answerResult');
+    
+    if (keyword === '') {
+        answerResult.textContent = '無効なキーワードです。再試行してください。';
+        return; // 入力が空の場合は何もせずに戻る
+    }
+    
+    switch (keyword) {
+        case 'ラストスパート':
+            answerResult.innerHTML = '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
+            break;
+        default:
+            answerResult.textContent = '無効なキーワードです。再試行してください。';
+            break;
+    }
+    
+    // すでにボタンが作成されている場合は何もせずに戻る
+    if (buttonCreated) {
+        return;
+    }
+
+    // 新しいボタンを作成
+    const newButton = document.createElement('button');
+    newButton.textContent = 'ARカメラを起動';
+    
+    // クリックイベントを追加
+    newButton.addEventListener('click', function () {
+        window.location.href = "./false_advertisement.html";
+    });
+    
+    // 新しいボタンをボタンコンテナに追加
+    document.getElementById('buttonContainer').appendChild(newButton);
+    
+    // ボタンが作成されたことを記録
+    buttonCreated = true;
+});

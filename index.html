@@ -23,22 +23,30 @@
                 <li>クロスワードに指定された文字で答え合わせをしよう</li>
                 <li>答えをサイトに入力しよう</li>
             </ol>
-            <button onclick="transitionArPage()">ARカメラ起動</button>
         </header>
 
         <section class="answer">
             <h1>ANSWER</h1>
             <p>答えを入力しよう</p>
+            <!-- ↓新たに追加した送信＆ボタン追加ボタンコード -->
             <div class="input-container">
+                <!-- テキストボックスと結果表示エリア -->
                 <input type="text" id="keywordInput" placeholder="ここに入力" />
                 <div id="answerResult"></div>
-                <button onclick="checkAnswerKeyword()">送信</button>
+
+                <!-- 統合されたボタン -->
+                <button id="actionButton">送信</button>
+
+                <!-- 新しいボタンが追加されるエリア -->
+                <div id="buttonContainer" class="button-container" width="50%" vspace="56px" >
+                    <!-- 新しいボタンがここに追加されます -->
+                </div>
             </div>
         </section>
 
         <section class="hint">
             <h1>HINT</h1>
-            <p>問題番号を入力してヒントをもらおう（半角数字で番号を入れてください）</p>
+            <p>問題番号を入力してヒントをもらおう <br>（半角数字で番号を入れてください）</p>
             <div class="input-container">
                 <input type="text" id="hintInput" placeholder="ここに入力" />
                 <div id="hintResult"></div>
@@ -49,7 +57,7 @@
         <footer>
             <p>〒940-2188 新潟県長岡市上富岡町1603-1</p>
             <p>長岡技術科学大学</p>
-            <p>naftec.shiozbu@gmail.com</p>
+            <p>nutfes.shikobu@gmail.com</p>
         </footer>
     </div>
 
