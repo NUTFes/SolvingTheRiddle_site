@@ -21,7 +21,7 @@ function checkHintKeyword() {
             break;
         case "2":
             $("#hintResult").text(
-                "エレベーター、コンタクトレンズ、マカロニ、サックスのようです。");
+                "エ〇ベーター、北〇〇星、〇カロ〇、サ〇〇スのようです。");
             break;
         case "3":
             $("#hintResult").text(
@@ -33,7 +33,7 @@ function checkHintKeyword() {
             break;
         case "5":
             $("#hintResult").text(
-                "占という字の1・2画目を抜き出すとカタカナのトになります。");
+                "泡という字の1～3画目を抜き出すとカタカナのシに見えます。");
             break;
         case "6":
             $("#hintResult").text(
@@ -45,14 +45,12 @@ function checkHintKeyword() {
         case "8":
             $("#hintResult").text("縦読みの単語が4つ並んでいる様です。");
             break;
-
         case "ラストスパート":
             $("#hintResult").text("ラストスパートが答え＝まだラストではない。");
             break;
         case "コウコク":
             $("#hintResult").text("パンフレットの広告になにかがある...？");
             break;
-
         default:
             $("#hintResult").text("無効なキーワードです。再試行してください。");
             break;
