@@ -84,7 +84,7 @@ document.getElementById('actionButton').addEventListener('click', function () {
             break;
         default:
             answerResult.textContent = '無効なキーワードです。再試行してください。';
-            break;
+            return; // 入力が空の場合は何もせずに戻る
     }
     
     // すでにボタンが作成されている場合は何もせずに戻る
