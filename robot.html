@@ -1,29 +1,161 @@
-<!-- 謎解き用アプリ -->
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
-			body {
-				margin: 0;
-				overflow: hidden;
+<!-- 偽広告スキャン用のアプリ -->
+<!-- aframeとar.jsを画像トラッキング/位置ベースの機能とともにインポートする -->
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script type="importmap">
+{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js"}}
+ import * as THREE from 'three';
+</script>
+
+<!-- ローダーのスタイル -->
+<style>
+	.arjs-loader {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 9999;
+		display: flex;			/* Flexboxを使用して中央揃え */
+		justify-content: center;	/* 横方向の中央揃え */
+		align-items: center;			/* 縦方向の中央揃え */
+	}
+
+	.arjs-loader div {
+		text-align: center;
+		font-size: 1.25em;
+		color: white;
+	}
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+	<!-- 画像ディスクリプタが読み込まれるまで表示される最小限のローダー。デバイスの計算能力によっては読み込みに時間がかかる場合があります -->
+	<div class="arjs-loader">
+		<div>読み込み中です。お待ちください...</div>
+	</div>
+	<a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;"
+				arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+		<a-assets>
+			<a-asset-item id="robot-obj" src="models/robot.obj"></a-asset-item>
+			<a-asset-item id="robot-mtl" src="models/robot.mtl"></a-asset-item>
+		</a-assets>
+		<a-nft type="nft" url="images/謎解き企画_ロゴ" smooth="true" smoothCount="5" smoothTolerance=".01" smoothThreshold="2"></a-nft>
+		<a-entity camera>
+			<a-obj-model id="robot" src="#robot-obj" mtl="#robot-mtl" rotation="0 0 0" scale="1 1 1" position="0 0 -8" visible="false"></a-obj-model>
+		</a-entity>
+	</a-scene>
+	<script>
+		window.addEventListener('arjs-nft-loaded', function(e){
+			console.log('画像ディスクリプタが読み込まれました')
+		});
+		
+		var scene = document.querySelector('a-scene');
+		var robot = document.querySelector('#robot');
+
+		scene.addEventListener('markerFound', onTracking);
+		scene.addEventListener('markerLost', onLost);
+		function onTracking() {
+			// クリア画像を表示する
+			console.log('トラッキング中');
+			robot.setAttribute('visible', true);
+		}
+		function onLost() {
+			// クリア画像を非表示にする
+			console.log('トラッキングが外れました');
+		}
+		
+		// マウスの座標管理用のベクトルを作成
+		const mouse = new THREE.Vector2();
+		// スワイプ移動時の座標管理用のベクトルを作成
+		const swipeMove = new THREE.Vector2(0, 0);
+		// 最後のスワイプ位置の座標管理用のベクトルを作成
+		const swipeMoveLast = new THREE.Vector2(0, 0);
+
+		// イベントハンドラを設定
+		if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+			// scene要素にイベントハンドラを紐付け
+			scene.addEventListener('touchstart', handleTouchStart);
+			scene.addEventListener('touchmove', handleTouchMove);
+		} else {
+			// scene要素にイベントハンドラを紐付け
+			scene.addEventListener('mousemove', handleMouseMove);
+		}
+		
+		// 初期化用に実行
+		onResize();
+		// リサイズ時のイベントハンドラとして登録
+		window.addEventListener('resize', onResize);
+
+		// sceneのリサイズを行う関数
+		function onResize() {
+			// 画面のサイズを取得
+			const width = window.innerWidth;
+			const height = window.innerHeight;
+			
+			// イベントハンドラを再設定
+			if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+				// scene要素にイベントハンドラを紐付け
+				scene.addEventListener('touchstart', handleTouchStart);
+				scene.addEventListener('touchmove', handleTouchMove);
+				// scene要素のイベントハンドラを解除
+				scene.removeEventListener('mousemove', handleMouseMove);
+			} else {
+				// scene要素にイベントハンドラを紐付け
+				scene.addEventListener('mousemove', handleMouseMove);
+				// scene要素のイベントハンドラを解除
+				scene.removeEventListener('touchstart', handleTouchStart);
+				scene.removeEventListener('touchmove', handleTouchMove);
 			}
-		</style>
-		<script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
-					"three/examples/jsm/loaders/DDSLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/DDSLoader.js",
-					"three/examples/jsm/loaders/MTLLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/MTLLoader.js",
-					"three/addons/loaders/OBJLoader.js": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/OBJLoader.js"
-            	}
+		}
+		
+		// マウス移動時のイベントハンドラ
+		function handleMouseMove(event) {
+			const element = event.currentTarget; // イベントを登録した要素(scene)を取得する
+			// scene要素上のXY座標を取得
+			const x = event.clientX - element.offsetLeft;
+			const y = event.clientY - element.offsetTop;
+			// scene要素の幅・高さを取得
+			const w = element.offsetWidth;
+			const h = element.offsetHeight;
+			// -1~1の範囲で現在のマウスの座標(位置ベクトル)を登録する
+			mouse.x = (x / w) * 2 - 1;
+			mouse.y = (y / h) * 2 - 1;
+			if (!robot) {
+				return;
 			}
-		</script>
-		<script type="module" src="robot.js"></script>
-		<title>Solving The Riddle</title>
-	</head>
-	<body>
-		<canvas id="myCanvas"></canvas>
-	</body>
-</html>
+			// メッシュをマウスの方向に回転させる
+			robot.setAttribute('rotation', {x: mouse.y * (Math.PI) * 50, y: mouse.x * (Math.PI) * 100, z: 0});
+		}
+
+		// スワイプ開始時のイベントハンドラ
+		function handleTouchStart(event) {
+			// スワイプ位置の最終座標を更新する
+			swipeMoveLast.x = event.touches[0].clientX;
+			swipeMoveLast.y = event.touches[0].clientY;
+		}
+		// スワイプ移動時のイベントハンドラ
+		function handleTouchMove(event) {
+			const element = event.currentTarget; // イベントを登録した要素(scene)を取得する
+			// scene要素上のXY座標を取得
+			const x = event.touches[0].clientX;
+			const y = event.touches[0].clientY;
+			// scene要素の幅・高さを取得
+			const w = element.offsetWidth;
+			const h = element.offsetHeight;
+			// -1~1の範囲で現在のマウスの座標(位置ベクトル)を登録する
+			swipeMove.x = ((x - swipeMoveLast.x) / w);
+			swipeMove.y = ((y - swipeMoveLast.y) / h);
+			console.log(swipeMove.x, swipeMove.y);
+			if (!robot) {
+				return;
+			}
+			// メッシュをスワイプの方向に回転させる
+			robot.setAttribute('rotation', {x: robot.getAttribute('rotation').x + swipeMove.y * (Math.PI * 2) * 50, y: robot.getAttribute('rotation').y + swipeMove.x * (Math.PI * 2)* 100, z: 0});
+			// console.log(robot.getAttribute('rotation').x, robot.getAttribute('rotation').y);
+			// スワイプ位置の最終座標を更新する
+			swipeMoveLast.x = x;
+			swipeMoveLast.y = y;
+		}
+	</script>
+</body>
