@@ -17,7 +17,7 @@ function checkHintKeyword() {
     switch (keyword) {
         case "1":
             $("#hintResult").text(
-                "ARカメラでロボをかざすと,,,");
+                "ARカメラでロゴをかざすと,,,");
             break;
         case "2":
             $("#hintResult").text(
