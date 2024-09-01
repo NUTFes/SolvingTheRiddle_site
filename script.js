@@ -17,7 +17,7 @@ function checkHintKeyword() {
     switch (keyword) {
         case "1":
             $("#hintResult").text(
-                "サイトをよーくみると「もんだい1」が,,,");
+                "ARカメラでロボをかざすと,,,");
             break;
         case "2":
             $("#hintResult").text(
@@ -45,14 +45,12 @@ function checkHintKeyword() {
         case "8":
             $("#hintResult").text("縦読みの単語が4つ並んでいる様です。");
             break;
-
         case "ラストスパート":
             $("#hintResult").text("ラストスパートが答え＝まだラストではない。");
             break;
         case "コウコク":
             $("#hintResult").text("パンフレットの広告になにかがある...？");
             break;
-
         default:
             $("#hintResult").text("無効なキーワードです。再試行してください。");
             break;
@@ -80,7 +78,7 @@ document.getElementById('actionButton').addEventListener('click', function () {
     
     switch (keyword) {
         case 'ラストスパート':
-            answerResult.innerHTML = '<img src="./images/43rd Mystery Solve.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
+            answerResult.innerHTML = '<img src="./images/43rd_image_clear.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
             break;
         default:
             answerResult.textContent = '無効なキーワードです。再試行してください。';
