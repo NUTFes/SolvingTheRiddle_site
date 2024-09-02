@@ -21,7 +21,7 @@ function checkHintKeyword() {
             break;
         case "2":
             $("#hintResult").text(
-                "エ〇ベーター、北〇〇星、〇カロ〇、サ〇〇スのようです。");
+                "エレベーター、コンタクトレンズ、マカロニ、サックスのようです。");
             break;
         case "3":
             $("#hintResult").text(
@@ -33,7 +33,7 @@ function checkHintKeyword() {
             break;
         case "5":
             $("#hintResult").text(
-                "泡という字の1～3画目を抜き出すとカタカナのシに見えます。");
+                "占という字の1・2画目を抜き出すとカタカナのトになります。");
             break;
         case "6":
             $("#hintResult").text(
@@ -129,29 +129,30 @@ document.getElementById('actionButton').addEventListener('click', function () {
     switch (keyword) {
         case 'ラストスパート':
             answerResult.innerHTML = '<img src="./images/43rd_image_clear.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
+            // 新しいボタンを作成
+            if (!buttonCreated) {
+                const newButton = document.createElement('button');
+                newButton.textContent = 'ARカメラを起動';
+                
+                // クリックイベントを追加
+                newButton.addEventListener('click', function () {
+                    window.location.href = "./false_advertisement.html";
+                });
+                
+                // 新しいボタンをボタンコンテナに追加
+                document.getElementById('buttonContainer').appendChild(newButton);
+                
+                // ボタンが作成されたことを記録
+                buttonCreated = true;
+            }
             break;
         default:
             answerResult.textContent = '無効なキーワードです。再試行してください。';
+            // ボタンを削除
+            if (buttonCreated) {
+                document.getElementById('buttonContainer').innerHTML = '';
+                buttonCreated = false;
+            }
             break;
     }
-    
-    // すでにボタンが作成されている場合は何もせずに戻る
-    if (buttonCreated) {
-        return;
-    }
-
-    // 新しいボタンを作成
-    const newButton = document.createElement('button');
-    newButton.textContent = 'ARカメラを起動';
-    
-    // クリックイベントを追加
-    newButton.addEventListener('click', function () {
-        window.location.href = "./false_advertisement.html";
-    });
-    
-    // 新しいボタンをボタンコンテナに追加
-    document.getElementById('buttonContainer').appendChild(newButton);
-    
-    // ボタンが作成されたことを記録
-    buttonCreated = true;
 });
