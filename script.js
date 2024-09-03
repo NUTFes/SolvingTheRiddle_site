@@ -21,7 +21,7 @@ function checkHintKeyword() {
             break;
         case "2":
             $("#hintResult").text(
-                "エレベーター、コンタクトレンズ、マカロニ、サックスのようです。");
+                "エ〇ベーター、北〇〇星、〇カロ〇、サ〇〇スのようです。");
             break;
         case "3":
             $("#hintResult").text(
@@ -33,7 +33,7 @@ function checkHintKeyword() {
             break;
         case "5":
             $("#hintResult").text(
-                "占という字の1・2画目を抜き出すとカタカナのトになります。");
+                "泡という字の1～3画目を抜き出すとカタカナのシに見えます。");
             break;
         case "6":
             $("#hintResult").text(
@@ -61,68 +61,22 @@ function transitionArPage() {
     window.location.href = "./false_advertisement.html";
 }
 
-// // フラグを使って新しいボタンの生成を1回だけに制限
-// let buttonCreated = false;
-
-// document.getElementById('actionButton').addEventListener('click', function () {
-//     // テキストボックスの内容を取得
-//     const keyword = document.getElementById('keywordInput').value.trim().toUpperCase();
-    
-//     // 結果エリアに表示
-//     const answerResult = document.getElementById('answerResult');
-    
-//     if (keyword === '') {
-//         answerResult.textContent = '無効なキーワードです。再試行してください。';
-//         return; // 入力が空の場合は何もせずに戻る
-//     }
-    
-//     switch (keyword) {
-//         case 'ラストスパート':
-//             answerResult.innerHTML = '<img src="./images/43rd_image_clear.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
-//             break;
-//         default:
-//             answerResult.textContent = '無効なキーワードです。再試行してください。';
-//             break;
-//     }
-    
-//     // すでにボタンが作成されている場合は何もせずに戻る
-//     if (buttonCreated) {
-//         return;
-//     }
-
-//     // 新しいボタンを作成
-//     const newButton = document.createElement('button');
-//     newButton.textContent = 'ARカメラを起動';
-    
-//     // クリックイベントを追加
-//     newButton.addEventListener('click', function () {
-//         window.location.href = "./false_advertisement.html";
-//     });
-    
-//     // 新しいボタンをボタンコンテナに追加
-//     document.getElementById('buttonContainer').appendChild(newButton);
-    
-//     // ボタンが作成されたことを記録
-//     buttonCreated = true;
-// });
-
-let buttonCreated = false; // ボタンの作成状況を管理するフラグ
-
 document.getElementById('actionButton').addEventListener('click', function () {
     // テキストボックスの内容を取得
     const keyword = document.getElementById('keywordInput').value.trim().toUpperCase();
     
     // 結果エリアに表示
     const answerResult = document.getElementById('answerResult');
+    const buttonContainer = document.getElementById('buttonContainer');
+    
+    // 「送信」ボタンを非表示にするために「送信」ボタンを取得
+    const actionButton = document.getElementById('actionButton');
     
     // 入力が空の場合、または「ラストスパート」以外の入力の場合の処理
     if (keyword === '') {
         answerResult.textContent = '無効なキーワードです。再試行してください。';
         // ボタンを削除
-        if (buttonCreated) {
-            document.getElementById('buttonContainer').innerHTML = '';
-            buttonCreated = false;
-        }
+        buttonContainer.innerHTML = '';
         return;
     }
 
@@ -130,29 +84,24 @@ document.getElementById('actionButton').addEventListener('click', function () {
         case 'ラストスパート':
             answerResult.innerHTML = '<img src="./images/43rd_image_clear.png" alt="Congratulations!" style="width: 100%; height: auto;"/>';
             // 新しいボタンを作成
-            if (!buttonCreated) {
-                const newButton = document.createElement('button');
-                newButton.textContent = 'ARカメラを起動';
-                
-                // クリックイベントを追加
-                newButton.addEventListener('click', function () {
-                    window.location.href = "./false_advertisement.html";
-                });
-                
-                // 新しいボタンをボタンコンテナに追加
-                document.getElementById('buttonContainer').appendChild(newButton);
-                
-                // ボタンが作成されたことを記録
-                buttonCreated = true;
-            }
+            const newButton = document.createElement('button');
+            newButton.textContent = 'ARカメラを起動';
+            
+            // クリックイベントを追加
+            newButton.addEventListener('click', function () {
+                window.location.href = "./false_advertisement.html";
+            });
+            
+            // 新しいボタンをボタンコンテナに追加
+            buttonContainer.appendChild(newButton);
+            
+            // 送信ボタンを非表示にする
+            actionButton.style.display = 'none';
             break;
         default:
             answerResult.textContent = '無効なキーワードです。再試行してください。';
             // ボタンを削除
-            if (buttonCreated) {
-                document.getElementById('buttonContainer').innerHTML = '';
-                buttonCreated = false;
-            }
+            buttonContainer.innerHTML = '';
             break;
     }
 });
